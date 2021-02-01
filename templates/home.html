@@ -7,13 +7,11 @@
   <body>
     <h1>Homepage - Visualization</h1>
     <ul>
-      <li><a id="tuning" href="/tuning"></a></li>
-      <li><a id="analyse" href="/analyse"></a></li>
+      <li><a id="tuning" onClick="reply_click(this)" href="#">Tuning</a></li>
+      <li><a id="analyse" onClick="reply_click(this)" href="#">Analyse</a></li>
     </ul>
-    <p> 
-      {% for i in data %}
-      {{ i }}
-      {% endfor %}
-    </p>
+    <span id=result>{{data}}</span>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='requestAjax.js')}}"></script>
   </body>
 </html>

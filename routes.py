@@ -11,7 +11,6 @@ Returns:
     [View]: [login page]
 """
 
-
 @app.route("/")
 @app.route("/home")
 def home():
@@ -20,19 +19,22 @@ def home():
     return render_template("home.html", data=data)
 
 
-@app.route("/tuning")
+@app.route("/tuning",methods=["GET", "POST"])
 def tuning():
-    data = 'test'
+    data = 'tuning'
     #data = somefunction()
-    return render_template("tuning.html", data=data)
+    return data
 
 
-@app.route("/analyse")
+@app.route("/analyse",methods=["GET", "POST"])
 def analyse():
-    data = 'test'
+    data = 'analyse'
+    print(data)
     #data = somefunction()
-    return render_template("analyse.html", data=data)
-s
+    return data
+
+
 if __name__ == "__main__":
         port = int(os.environ.get("PORT", 5000))
-        app.run(host='0.0.0.0', port=port)
+
+        app.run(host='0.0.0.0', port=port, debug=True)
