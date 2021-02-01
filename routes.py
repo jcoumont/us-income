@@ -1,7 +1,8 @@
 from flask import Flask
 from flask import Flask, request, render_template
-from DataManager import DataManager
-from RFClassifierProvider import RFClassifierProvider
+from src.DataManager import DataManager
+from src.AccuracyManager import AccuracyManager
+from src.RFClassifierProvider import RFClassifierProvider
 import random
 import os
 
@@ -17,8 +18,8 @@ Returns:
 @app.route("/")
 @app.route("/home")
 def home():
-    data = "test"
-    # data = somefunction()
+    accuracyManager = AccuracyManager ()
+    data = accuracyManager.plot_confusion_matrix()
     return render_template("home.html", data=data)
 
 

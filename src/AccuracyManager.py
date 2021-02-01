@@ -69,5 +69,6 @@ class AccuracyManager:
         ax.set_title(title)
         ax.xaxis.set_ticklabels(labels)
         ax.yaxis.set_ticklabels(labels)
+        plt.fig_to_html()
 
         return plt
