@@ -11,6 +11,7 @@ Returns:
     [View]: [login page]
 """
 
+
 @app.route("/")
 @app.route("/home")
 def home():
