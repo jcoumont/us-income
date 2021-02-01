@@ -1,4 +1,10 @@
-from sklearn.metrics import accuracy_score, f1_score, roc_auc_score, confusion_matrix, roc_curve
+from sklearn.metrics import (
+    accuracy_score,
+    f1_score,
+    roc_auc_score,
+    confusion_matrix,
+    roc_curve,
+)
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -66,40 +72,39 @@ class AccuracyManager:
         return plt
 
     def get_roc_curve(self, clf, X, y):
-        """
-        """
+        """"""
         y_pred_proba = clf.predict_proba(X)[::, 1]
-        fpr, tpr, _ = roc_curve(y,  y_pred_proba)
+        fpr, tpr, _ = roc_curve(y, y_pred_proba)
         return fpr, tpr
 
     def plot_roc_curve(self, clf, X, y) -> plt:
-        """
-        """
+        """"""
         fpr, tpr = self.get_roc_curve(clf, X, y)
 
-        plt.plot(fpr, tpr, color='orange', label='ROC')
-        plt.plot([0, 1], [0, 1], color='darkblue', linestyle='--')
+        plt.plot(fpr, tpr, color="orange", label="ROC")
+        plt.plot([0, 1], [0, 1], color="darkblue", linestyle="--")
 
-        plt.xlabel('False Positive Rate')
-        plt.ylabel('True Positive Rate')
-        plt.title('Receiver Operating Characteristic (ROC) Curve')
+        plt.xlabel("False Positive Rate")
+        plt.ylabel("True Positive Rate")
+        plt.title("Receiver Operating Characteristic (ROC) Curve")
         plt.legend()
 
         return plt
 
-    def plot_roc_curves(self, clf_1, X_1, y_1, clf_2, X_2, y_2, label_1="ROC 1", label_2="ROC 2") -> plt:
-        """
-        """
+    def plot_roc_curves(
+        self, clf_1, X_1, y_1, clf_2, X_2, y_2, label_1="ROC 1", label_2="ROC 2"
+    ) -> plt:
+        """"""
         fpr, tpr = self.get_roc_curve(clf_1, X_1, y_1)
-        plt.plot(fpr, tpr, color='orange', label=label_1)
+        plt.plot(fpr, tpr, color="orange", label=label_1)
 
         fpr, tpr = self.get_roc_curve(clf_2, X_2, y_2)
-        plt.plot(fpr, tpr, color='orange', label=label_2)
-        plt.plot([0, 1], [0, 1], color='darkblue', linestyle='--')
+        plt.plot(fpr, tpr, color="orange", label=label_2)
+        plt.plot([0, 1], [0, 1], color="darkblue", linestyle="--")
 
-        plt.xlabel('False Positive Rate')
-        plt.ylabel('True Positive Rate')
-        plt.title('Receiver Operating Characteristic (ROC) Curve')
+        plt.xlabel("False Positive Rate")
+        plt.ylabel("True Positive Rate")
+        plt.title("Receiver Operating Characteristic (ROC) Curve")
         plt.legend()
 
         return plt
