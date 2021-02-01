@@ -52,7 +52,6 @@ class AccuracyManager:
     ) -> plt:
         """"""
         labels = ["0", "1"]
-
         ax = plt.subplot()
         sns.heatmap(clf_acc.confusion_matrix, annot=True, ax=ax, fmt=".0f")
 

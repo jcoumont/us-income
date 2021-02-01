@@ -12,8 +12,8 @@ class DataManager:
     :target_name str: name of the target column.
     """
 
-    train_file: str = "../data/data_train.csv"
-    test_file: str = "../data/data_test.csv"
+    train_file: str = "data/data_train.csv"
+    test_file: str = "data/data_test.csv"
     target_name: str = "income"
 
     def get_X_y(self, file_path: str) -> (pd.Series, pd.Series):

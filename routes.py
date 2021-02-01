@@ -13,13 +13,15 @@ app = Flask(__name__)
 Returns:
     [View]: [login page]
 """
-
-
+dataManager = DataManager()
+accuracyManager = AccuracyManager ()
+rfCassifierProvider = RFClassifierProvider()
+X_train,y_train,X_test,y_test = dataManager.get_train_test()
+model = rfCassifierProvider.get_classifier()
 @app.route("/")
 @app.route("/home")
 def home():
-    accuracyManager = AccuracyManager ()
-    data = accuracyManager.plot_confusion_matrix()
+    data = accuracyManager.plot_confusion_matrix(model,X_train,y_train)
     return render_template("home.html", data=data)
 
 
