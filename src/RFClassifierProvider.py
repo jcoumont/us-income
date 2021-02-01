@@ -8,15 +8,14 @@ class RFClassifierProvider:
     """
 
     params = {
-        'criterion': 'gini',
-        'max_depth': 14,
-        'max_features': 4,
-        'min_samples_split': 0.001,
-        'n_estimators': 27
+        "criterion": "gini",
+        "max_depth": 14,
+        "max_features": 4,
+        "min_samples_split": 0.001,
+        "n_estimators": 27,
     }
 
-    def get_classifier(self,
-                       use_params: bool = False) -> RandomForestClassifier:
+    def get_classifier(self, use_params: bool = False) -> RandomForestClassifier:
         """
         This function returns a RandomForestClassifier.
         This one can be set as default or hyperparametrized.

@@ -18,10 +18,9 @@ class ClassifierAccuracy:
         val_score: float,
         val_f1_score: float,
         val_roc_auc_score: float,
-        val_confusion_matrix
+        val_confusion_matrix,
     ):
-        """
-        """
+        """"""
         self.score = val_score
         self.f1_score = val_f1_score
         self.roc_auc_score = val_roc_auc_score
@@ -35,8 +34,7 @@ class AccuracyManager:
     """
 
     def check_model_accuracy(self, clf, X, y) -> ClassifierAccuracy:
-        """
-        """
+        """"""
         y_pred = clf.predict(X)
         y_pred_proba = clf.predict_proba(X)[:, 1]
 
@@ -46,27 +44,21 @@ class AccuracyManager:
         clf_confusion_matrix = confusion_matrix(y, y_pred)
 
         return ClassifierAccuracy(
-            clf_score,
-            clf_f1_score,
-            clf_roc_auc_score,
-            clf_confusion_matrix
-         )
+            clf_score, clf_f1_score, clf_roc_auc_score, clf_confusion_matrix
+        )
 
     def plot_confusion_matrix(
-        self,
-        clf_acc: ClassifierAccuracy,
-        title: str = 'Confusion Matrix'
+        self, clf_acc: ClassifierAccuracy, title: str = "Confusion Matrix"
     ) -> plt:
-        """
-        """
-        labels = ['0', '1']
+        """"""
+        labels = ["0", "1"]
 
         ax = plt.subplot()
         sns.heatmap(clf_acc.confusion_matrix, annot=True, ax=ax, fmt=".0f")
 
         # labels, title and ticks
-        ax.set_xlabel('Predicted labels')
-        ax.set_ylabel('True labels')
+        ax.set_xlabel("Predicted labels")
+        ax.set_ylabel("True labels")
         ax.set_title(title)
         ax.xaxis.set_ticklabels(labels)
         ax.yaxis.set_ticklabels(labels)
