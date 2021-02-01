@@ -15,7 +15,6 @@ class RFClassifierProvider:
         'n_estimators': 27
     }
 
-
     def get_classifier(self,
                        use_params: bool = False) -> RandomForestClassifier:
         """
@@ -39,4 +38,8 @@ class RFClassifierProvider:
             rf_clf.set_params(**self.params)
 
         return rf_clf
-        
+
+    def get_classifiers(self) -> (RandomForestClassifier, RandomForestClassifier)
+        rfc_default = self.get_classifier(False)
+        rfc_param = self.get_classifier(True)
+        return rfc_default, rfc_param
