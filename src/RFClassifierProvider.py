@@ -39,3 +39,4 @@ class RFClassifierProvider:
             rf_clf.set_params(**self.params)
 
         return rf_clf
+        
