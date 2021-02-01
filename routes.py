@@ -14,8 +14,8 @@ Returns:
 @app.route("/")
 @app.route("/home")
 def home():
-    data = 'test'
-    #data = somefunction()
+    data = "test"
+    # data = somefunction()
     return render_template("home.html", data=data)
 
 
