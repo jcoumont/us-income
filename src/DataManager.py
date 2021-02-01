@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-class DataManager():
+class DataManager:
     """
     The DataManager helps you to deal with the datas.
 
@@ -11,6 +11,7 @@ class DataManager():
     :test_file   str: path of the test dataset.
     :target_name str: name of the target column.
     """
+
     train_file: str = "../data/data_train.csv"
     test_file: str = "../data/data_test.csv"
     target_name: str = "income"
