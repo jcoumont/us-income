@@ -55,7 +55,8 @@ class AccuracyManager:
     def plot_confusion_matrix(
         self,
         clf_acc: ClassifierAccuracy,
-        title: str = 'Confusion Matrix') -> plt:
+        title: str = 'Confusion Matrix'
+    ) -> plt:
         """
         """
         labels = ['0', '1']
