@@ -5,7 +5,7 @@ from sklearn.metrics import (
     confusion_matrix,
     roc_curve,
 )
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt, mpld3
 import seaborn as sns
 
 
@@ -58,6 +58,8 @@ class AccuracyManager:
     ) -> plt:
         """"""
         labels = ["0", "1"]
+        fig_size = (10, 5)
+        fig = plt.figure(figsize=fig_size)
         ax = plt.subplot()
         sns.heatmap(clf_acc.confusion_matrix, annot=True, ax=ax, fmt=".0f")
 
@@ -67,9 +69,8 @@ class AccuracyManager:
         ax.set_title(title)
         ax.xaxis.set_ticklabels(labels)
         ax.yaxis.set_ticklabels(labels)
-        plt.fig_to_html()
 
-        return plt
+        return mpld3.fig_to_html(fig)
 
     def get_roc_curve(self, clf, X, y):
         """"""
