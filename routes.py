@@ -1,4 +1,5 @@
-from flask import Flask, request, render_template
+from flask import Flask
+from flask import request, render_template
 from src.DataManager import DataManager
 from src.AccuracyManager import AccuracyManager, ClassifierAccuracy
 from src.RFClassifierProvider import RFClassifierProvider
@@ -62,5 +63,4 @@ def analyse():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-
     app.run(host="0.0.0.0", port=port, debug=True)
