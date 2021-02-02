@@ -1,4 +1,5 @@
-from flask import Flask, request, render_template
+from flask import Flask
+from flask import request, render_template
 from src.DataManager import DataManager
 from src.AccuracyManager import AccuracyManager, ClassifierAccuracy
 from src.RFClassifierProvider import RFClassifierProvider
@@ -41,14 +42,8 @@ acc_model_tuned_test = accuracyManager.check_model_accuracy(
 @app.route("/")
 @app.route("/home")
 def home():
-<<<<<<< HEAD
-    print(model,X_train,y_train)
-
-    return render_template("home.html")
-=======
     data = accuracyManager.plot_confusion_matrix(acc_model_train)
     return render_template("home.html", data=data)
->>>>>>> dceb9918817c91b56634ba6242f5455040418cf8
 
 
 @app.route("/tuning", methods=["GET", "POST"])
@@ -68,5 +63,4 @@ def analyse():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-
     app.run(host="0.0.0.0", port=port, debug=True)
