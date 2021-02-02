@@ -21,8 +21,9 @@ model = rfCassifierProvider.get_classifier()
 @app.route("/")
 @app.route("/home")
 def home():
-    data = accuracyManager.plot_confusion_matrix(model,X_train,y_train)
-    return render_template("home.html", data=data)
+    print(model,X_train,y_train)
+
+    return render_template("home.html")
 
 
 @app.route("/tuning",methods=["GET", "POST"])
