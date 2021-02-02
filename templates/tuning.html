@@ -8,7 +8,7 @@
     <title>Homepage</title>
   </head>
   <body>
-    <h1>Homepage - Visualization</h1>
+    <h1>US income - Tuning</h1>
     <nav class="navbar navbar-dark bg-primary">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 container-fluid justify-content-center">
       <li class="nav-item"><a class="nav-link" id="tuning"  href="/home">Home</a></li>
@@ -17,8 +17,8 @@
     </nav>
     <table>
       <tr>
-        <td>Default classifier</td>
-        <td>Tuned classifier</td>
+        <td><h3>Default classifier</h3></td>
+        <td><h3>Tuned classifier</h3></td>
       </tr>
       <tr>
         <td><img src="/static/pictures/confusion_matrix_default.png"></td>
@@ -33,7 +33,16 @@
     <p>{{default}}</p>
     <h3>Tuned params</h3>
     <p>{{tuned}}</p>
-    
+    <h3>Decision Tree</h3>
+    <table>
+       <tr>
+         <td>
+          <img class="fit-picture" src="/static/pictures/rf_individualtree_initial.png">
+         </td>
+         <td>
+          <img class="fit-picture" src="/static/pictures/rf_individualtree_hyperparametrized.png">
+         </td>
+    </table>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
   </body>
