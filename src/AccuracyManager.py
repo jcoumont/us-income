@@ -106,7 +106,7 @@ class AccuracyManager:
         plt.plot(fpr, tpr, color="orange", label=label_1)
 
         fpr, tpr = self.get_roc_curve(clf_2, X_2, y_2)
-        plt.plot(fpr, tpr, color="orange", label=label_2)
+        plt.plot(fpr, tpr, color="red", label=label_2)
         plt.plot([0, 1], [0, 1], color="darkblue", linestyle="--")
 
         plt.xlabel("False Positive Rate")
