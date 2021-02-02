@@ -5,8 +5,8 @@ from sklearn.metrics import (
     confusion_matrix,
     roc_curve,
 )
-
-import matplotlib.pyplot as plt, mpld3
+import matplotlib.pyplot as plt
+import mpld3
 import seaborn as sns
 
 
