@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
+    <script type="text/javascript" src="{{url_for('static', filename='requestAjax.js')}}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <title>Homepage</title>
@@ -10,14 +11,14 @@
     <h1>Homepage - Visualization</h1>
     <nav class="navbar navbar-dark bg-primary">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 container-fluid justify-content-center">
-      <li class="nav-item"><a class="nav-link"id="tuning" onClick="reply_click(this)" href="#">Tuning</a></li>
+      <li class="nav-item"><a class="nav-link" id="tuning" onClick="reply_click(this)" href="#">Tuning</a></li>
       <li class="nav-item"><a class="nav-link" id="analyse" onClick="reply_click(this)" href="#">Analyse</a></li>
     </ul>
     </nav>
     {%for graph in data%} 
-    <span id=result>{{graph|safe}}</span>
+    <span id=result class="align-center">{{graph|safe}}</span>
     {%endfor%} 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="{{url_for('static', filename='requestAjax.js')}}"></script>
+    
   </body>
 </html>
