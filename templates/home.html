@@ -15,10 +15,20 @@
       <li class="nav-item"><a class="nav-link" id="analyse"  href="analyse">Analyse</a></li>
     </ul>
     </nav>
-    {%for graph in data%} 
-    <span id=result class="align-center">{{graph|safe}}</span>
-    {%endfor%} 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <table>
+      <tr>
+        <td>Default classifier</td>
+        <td>Tuned classifier</td>
+      </tr>
+      <tr>
+        <td><img src="/static/pictures/confusion_matrix_default.png"></td>
+        <td><img src="/static/pictures/confusion_matrix_tuned.png"></td>
+      </tr>
+      <tr>
+        <td><img src="/static/pictures/roc_curve_default.png"></td>
+        <td><img src="/static/pictures/roc_curve_tuned.png"></td>
+      </tr>
+    </table>
     
   </body>
 </html>

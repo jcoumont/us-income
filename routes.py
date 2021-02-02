@@ -39,14 +39,16 @@ acc_model_tuned_test = accuracyManager.check_model_accuracy(
 )
 
 data = []
-graphs =[]
+
+
 @app.route("/")
 @app.route("/home")
 def home():
-    confusion_matrix = accuracyManager.plot_confusion_matrix(acc_model_train)
-    roc_curves = accuracyManager.plot_roc_curves(model_tuned,X_train,y_train,model_tuned,X_test,y_test,'Roc train','Roc test')
-    data.append(confusion_matrix)
-    data.append(roc_curves)
+    # confusion_matrix = accuracyManager.plot_confusion_matrix(acc_model_train)
+    # roc_curves = accuracyManager.plot_roc_curves(model_tuned, X_train, y_train, model_tuned, X_test, y_test, 'Roc train', 'Roc test')
+    # data.append(confusion_matrix)
+    # data.append(roc_curves)
+    data = {}
     return render_template("home.html", data=data)
 
 
@@ -59,9 +61,9 @@ def tuning():
 
 @app.route("/analyse")
 def analyse():
-    print(data)
+    data = {}
     # data = somefunction()
-    return data
+    return render_template("analyse.html", data=data)
 
 
 if __name__ == "__main__":
