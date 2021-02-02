@@ -43,6 +43,7 @@ acc_model_tuned_test = accuracyManager.check_model_accuracy(
 @app.route("/home")
 def home():
     data = accuracyManager.plot_confusion_matrix(acc_model_train)
+    roc_curves = accuracyManager.plot_roc_curves(model_tuned,X_train,y_train,model_tuned,X_test,y_test,'Roc train','Roc test')
     return render_template("home.html", data=data)
 
 

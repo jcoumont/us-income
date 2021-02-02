@@ -14,7 +14,9 @@
       <li class="nav-item"><a class="nav-link" id="analyse" onClick="reply_click(this)" href="#">Analyse</a></li>
     </ul>
     </nav>
-    <span id=result>{{data|safe}}</span>
+    {%for graph in data%} 
+    <span id=result>{{graph|safe}}</span>
+    {%endfor%} 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{url_for('static', filename='requestAjax.js')}}"></script>
   </body>
