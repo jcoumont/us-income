@@ -1,7 +1,7 @@
 from flask import Flask
-from flask import request, render_template
+from flask import jsonify, render_template
 from src.DataManager import DataManager
-from src.AccuracyManager import AccuracyManager, ClassifierAccuracy
+from src.AccuracyManager import AccuracyManager
 from src.RFClassifierProvider import RFClassifierProvider
 
 import random
@@ -9,11 +9,6 @@ import os
 
 app = Flask(__name__)
 
-"""[Home route]
-
-Returns:
-    [View]: [login page]
-"""
 dataManager = DataManager()
 accuracyManager = AccuracyManager()
 rfCassifierProvider = RFClassifierProvider()
@@ -44,28 +39,30 @@ data = []
 @app.route("/")
 @app.route("/home")
 def home():
-    # confusion_matrix = accuracyManager.plot_confusion_matrix(acc_model_train)
-    # roc_curves = accuracyManager.plot_roc_curves(model_tuned, X_train, y_train, model_tuned, X_test, y_test, 'Roc train', 'Roc test')
-    # data.append(confusion_matrix)
-    # data.append(roc_curves)
-    data = {
-        "acc_model_train": acc_model_train,
-        "acc_model_test": acc_model_test
-    }
-    return render_template("home.html", data=data)
+    return render_template(
+        "home.html",
+        train_score=acc_model_train.score,
+        train_f1=acc_model_train.f1_score,
+        train_roc_auc=acc_model_train.roc_auc_score,
+        test_score=acc_model_test.score,
+        test_f1=acc_model_test.f1_score,
+        test_roc_auc=acc_model_test.roc_auc_score
+        )
 
 
 @app.route("/tuning")
 def tuning():
     default_params = model.get_params()
     tuned_params = model_tuned.get_params()
-    return render_template("tuning.html",default=default_params,tuned=tuned_params)
+    return render_template(
+        "tuning.html",
+        default=default_params,
+        tuned=tuned_params)
 
 
 @app.route("/analyse")
 def analyse():
     data = {}
-    # data = somefunction()
     return render_template("analyse.html", data=data)
 
 

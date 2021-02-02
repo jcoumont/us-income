@@ -18,27 +18,27 @@
     <h2>Default classifier</h2>
     <table>
       <tr>
-        <td></td>
-        <td>Train</td>
-        <td>Test</td>
+        <td width="200"></td>
+        <td width="100">Train</td>
+        <td width="100">Test</td>
       </tr>
       <tr>
         <td>Accuracy</td>
-        <td>{{data["acc_model_train"].clf_score}}</td>
-        <td>{{data["acc_model_test"].clf_score}}</td>
+        <td>{{"{:,.2f} %".format(train_score*100)}}</td>
+        <td>{{"{:,.2f} %".format(test_score*100)}}</td>
       </tr>
       <tr>
         <td>F1 score</td>
-        <td>{{data["acc_model_train"].clf_f1_score}}</td>
-        <td>{{data["acc_model_test"].clf_f1_score}}</td>
+        <td>{{"{:,.2f} %".format(train_f1*100)}}</td>
+        <td>{{"{:,.2f} %".format(test_f1*100)}}</td>
       </tr>
       <tr>
         <td>ROC AUC score</td>
-        <td>{{data["acc_model_train"].clf_roc_auc_score}}</td>
-        <td>{{data["acc_model_test"].clf_roc_auc_score}}</td>
+        <td>{{"{:,.2f} %".format(train_roc_auc*100)}}</td>
+        <td>{{"{:,.2f} %".format(test_roc_auc*100)}}</td>
       </tr>
     </table>
-    <img src="/static/pictures/confusion_matrix_tuned.png">
+    <img src="/static/pictures/confusion_matrix_default.png">
     <img src="/static/pictures/roc_curve_default.png"> 
   </body>
 </html>
