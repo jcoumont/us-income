@@ -81,8 +81,10 @@ class AccuracyManager:
 
     def plot_roc_curve(self, clf, X, y) -> plt:
         """"""
-        fpr, tpr = self.get_roc_curve(clf, X, y)
+        fig_size = (10, 5)
+        fig = plt.figure(figsize=fig_size)
 
+        fpr, tpr = self.get_roc_curve(clf, X, y)
         plt.plot(fpr, tpr, color="orange", label="ROC")
         plt.plot([0, 1], [0, 1], color="darkblue", linestyle="--")
 
@@ -91,12 +93,15 @@ class AccuracyManager:
         plt.title("Receiver Operating Characteristic (ROC) Curve")
         plt.legend()
 
-        return plt
+        return mpld3.fig_to_html(fig)
 
     def plot_roc_curves(
         self, clf_1, X_1, y_1, clf_2, X_2, y_2, label_1="ROC 1", label_2="ROC 2"
     ) -> plt:
         """"""
+        fig_size = (10, 5)
+        fig = plt.figure(figsize=fig_size)
+
         fpr, tpr = self.get_roc_curve(clf_1, X_1, y_1)
         plt.plot(fpr, tpr, color="orange", label=label_1)
 
@@ -109,4 +114,4 @@ class AccuracyManager:
         plt.title("Receiver Operating Characteristic (ROC) Curve")
         plt.legend()
 
-        return plt
+        return mpld3.fig_to_html(fig)
