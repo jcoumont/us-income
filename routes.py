@@ -41,8 +41,14 @@ acc_model_tuned_test = accuracyManager.check_model_accuracy(
 @app.route("/")
 @app.route("/home")
 def home():
+<<<<<<< HEAD
+    print(model,X_train,y_train)
+
+    return render_template("home.html")
+=======
     data = accuracyManager.plot_confusion_matrix(acc_model_train)
     return render_template("home.html", data=data)
+>>>>>>> dceb9918817c91b56634ba6242f5455040418cf8
 
 
 @app.route("/tuning", methods=["GET", "POST"])
