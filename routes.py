@@ -57,13 +57,9 @@ def home():
 
 @app.route("/tuning")
 def tuning():
-    roc_curve_default = accuracyManager.plot_roc_curves(model,X_train,y_train,model,X_test,y_test,'Roc train','Roc test')
-    roc_curve_tuned = accuracyManager.plot_roc_curves(model_tuned,X_train,y_train,model_tuned,X_test,y_test,'Roc train','Roc test')
-    graphs.append(roc_curve_default)
-    graphs.append(roc_curve_tuned)
     default_params = model.get_params()
     tuned_params = model_tuned.get_params()
-    return render_template("tuning.html", graphs = graphs,default=default_params,tuned=tuned_params)
+    return render_template("tuning.html",default=default_params,tuned=tuned_params)
 
 
 @app.route("/analyse")
