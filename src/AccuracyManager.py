@@ -41,7 +41,8 @@ class AccuracyManager:
     """
 
     def check_model_accuracy(self, clf, X, y) -> ClassifierAccuracy:
-        """"""
+        """
+        """
         y_pred = clf.predict(X)
         y_pred_proba = clf.predict_proba(X)[:, 1]
 
@@ -54,64 +55,9 @@ class AccuracyManager:
             clf_score, clf_f1_score, clf_roc_auc_score, clf_confusion_matrix
         )
 
-    def plot_confusion_matrix(
-        self, clf_acc: ClassifierAccuracy, title: str = "Confusion Matrix"
-    ) -> plt:
-        """"""
-        labels = ["0", "1"]
-        fig_size = (10, 5)
-        fig = plt.figure(figsize=fig_size)
-        ax = plt.subplot()
-        sns.heatmap(clf_acc.confusion_matrix, annot=True, ax=ax, fmt=".0f")
-
-        # labels, title and ticks
-        ax.set_xlabel("Predicted labels")
-        ax.set_ylabel("True labels")
-        ax.set_title(title)
-        ax.xaxis.set_ticklabels(labels)
-        ax.yaxis.set_ticklabels(labels)
-
-        return mpld3.fig_to_html(fig)
-
     def get_roc_curve(self, clf, X, y):
-        """"""
+        """
+        """
         y_pred_proba = clf.predict_proba(X)[::, 1]
         fpr, tpr, _ = roc_curve(y, y_pred_proba)
         return fpr, tpr
-
-    def plot_roc_curve(self, clf, X, y) -> plt:
-        """"""
-        fig_size = (10, 5)
-        fig = plt.figure(figsize=fig_size)
-
-        fpr, tpr = self.get_roc_curve(clf, X, y)
-        plt.plot(fpr, tpr, color="orange", label="ROC")
-        plt.plot([0, 1], [0, 1], color="darkblue", linestyle="--")
-
-        plt.xlabel("False Positive Rate")
-        plt.ylabel("True Positive Rate")
-        plt.title("Receiver Operating Characteristic (ROC) Curve")
-        plt.legend()
-
-        return mpld3.fig_to_html(fig)
-
-    def plot_roc_curves(
-        self, clf_1, X_1, y_1, clf_2, X_2, y_2, label_1="ROC 1", label_2="ROC 2"
-    ) -> plt:
-        """"""
-        fig_size = (10, 5)
-        fig = plt.figure(figsize=fig_size)
-
-        fpr, tpr = self.get_roc_curve(clf_1, X_1, y_1)
-        plt.plot(fpr, tpr, color="orange", label=label_1)
-
-        fpr, tpr = self.get_roc_curve(clf_2, X_2, y_2)
-        plt.plot(fpr, tpr, color="red", label=label_2)
-        plt.plot([0, 1], [0, 1], color="darkblue", linestyle="--")
-
-        plt.xlabel("False Positive Rate")
-        plt.ylabel("True Positive Rate")
-        plt.title("Receiver Operating Characteristic (ROC) Curve")
-        plt.legend()
-
-        return mpld3.fig_to_html(fig)
