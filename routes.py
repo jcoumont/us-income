@@ -48,7 +48,10 @@ def home():
     # roc_curves = accuracyManager.plot_roc_curves(model_tuned, X_train, y_train, model_tuned, X_test, y_test, 'Roc train', 'Roc test')
     # data.append(confusion_matrix)
     # data.append(roc_curves)
-    data = {}
+    data = {
+        "acc_model_train": acc_model_train,
+        "acc_model_test": acc_model_test
+    }
     return render_template("home.html", data=data)
 
 
